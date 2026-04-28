@@ -1,7 +1,7 @@
 /*
 ================================================================================
 Project: Micro Pomodoro & Billable Timer
-Version: 1.0.0
+Version: 1.0.1
 Author: Rifins Dev
 Website: https://www.rifins.com
 Description: A minimalist, always-on-top timer for productivity tracking 
@@ -31,10 +31,11 @@ WM_LBUTTONDOWN(wParam, lParam, msg, hwnd) {
 }
 
 ; Digital Display
-DisplayTime := MyGui.Add("Text", "w200 Center s28 bold cBlack", "25:00")
+MyGui.SetFont("s28 bold cBlack") ; Set font size, weight, and color HERE
+DisplayTime := MyGui.Add("Text", "w200 Center", "25:00") ; Removed font options from this line
 
 ; Control Buttons
-MyGui.SetFont("s9 norm")
+MyGui.SetFont("s9 norm") ; Reset font for buttons
 MyGui.Add("Button", "x15 y70 w85 h30", "Pomodoro").OnEvent("Click", StartPomodoro)
 MyGui.Add("Button", "x105 y70 w85 h30", "Stopwatch").OnEvent("Click", StartStopwatch)
 MyGui.Add("Button", "x15 y105 w175 h30", "Stop / Reset").OnEvent("Click", ResetTimer)
